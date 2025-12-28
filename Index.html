@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pandit Girish Ji | Vedic Puja Services</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Devanagari&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Noto Serif Devanagari',serif}
+body{background:#f5f5f5;color:#333}
+header{background:linear-gradient(90deg,#7b0000,#b22222);color:#fff;padding:25px;text-align:center}
+header h1{font-size:34px}
+header p{margin-top:6px;font-size:16px}
+
+nav{background:#d4af37}
+nav ul{list-style:none;display:flex;justify-content:center;flex-wrap:wrap}
+nav ul li{position:relative}
+nav ul li a{display:block;padding:14px 18px;text-decoration:none;color:#000;font-weight:bold}
+nav ul li:hover{background:#c19a2e}
+nav ul li ul{display:none;position:absolute;background:#fff;min-width:220px;box-shadow:0 4px 8px rgba(0,0,0,.2)}
+nav ul li:hover ul{display:block}
+nav ul li ul li a{padding:10px;font-weight:normal}
+
+.hero{
+background:url("https://i.imgur.com/ZkZ9QxU.jpg") center/cover;
+color:#fff;
+padding:90px 20px;
+text-align:center
+}
+.hero h2{font-size:38px}
+.hero p{font-size:18px;margin-top:8px}
+
+section{padding:45px 20px}
+.container{max-width:1100px;margin:auto}
+
+.cards{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:20px
+}
+.card{
+background:#fff;
+padding:22px;
+border-radius:14px;
+box-shadow:0 4px 12px rgba(0,0,0,.1)
+}
+.card h3{color:#7b0000;margin-bottom:10px}
+
+form{
+background:#fff;
+padding:28px;
+border-radius:14px;
+box-shadow:0 4px 12px rgba(0,0,0,.1)
+}
+form input,form select,form textarea{
+width:100%;
+padding:11px;
+margin:8px 0
+}
+form button{
+background:#7b0000;
+color:#fff;
+border:none;
+padding:14px;
+width:100%;
+font-size:17px;
+cursor:pointer
+}
+
+.lang-switch{text-align:right;margin-bottom:10px}
+.lang-switch button{
+padding:6px 12px;
+margin-left:5px;
+border:none;
+cursor:pointer;
+background:#d4af37;
+font-weight:bold
+}
+
+footer{
+background:#7b0000;
+color:#fff;
+text-align:center;
+padding:15px
+}
+
+.whatsapp{
+position:fixed;bottom:20px;right:20px;
+background:#25d366;color:#fff;
+padding:14px 18px;border-radius:50px;
+text-decoration:none;font-weight:bold
+}
+.call{
+position:fixed;bottom:70px;right:20px;
+background:#0b5ed7;color:#fff;
+padding:14px 18px;border-radius:50px;
+text-decoration:none;font-weight:bold
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<h1 id="title">🕉️ पंडित गिरिश जी</h1>
+<p id="subtitle">अनुभवी वैदिक पंडित | 10 वर्षों का अनुभव | New Delhi</p>
+</header>
+
+<nav>
+<ul>
+<li><a href="#">Services</a>
+<ul>
+<li>Griha Pravesh</li>
+<li>Marriage</li>
+<li>Havan / Yagya</li>
+<li>Satyanarayan Katha</li>
+<li>Astrology</li>
+</ul>
+</li>
+<li><a href="#book">Book Puja</a></li>
+<li><a href="#contact">Contact</a></li>
+</ul>
+</nav>
+
+<div class="hero">
+<h2 id="heroTitle">Complete Vedic Puja Services</h2>
+<p id="heroText">Pure Mantras • Proper Rituals • Trusted Pandit</p>
+</div>
+
+<section>
+<div class="container">
+<div class="lang-switch">
+<button onclick="setHindi()">हिंदी</button>
+<button onclick="setEnglish()">English</button>
+</div>
+
+<h2 id="aboutTitle">🙏 हमारे बारे में</h2>
+<p id="aboutText">
+पंडित गिरिश जी पिछले 10 वर्षों से नई दिल्ली में सभी प्रकार की वैदिक पूजा,
+हवन, संस्कार एवं ज्योतिष सेवाएँ प्रदान कर रहे हैं।
+</p>
+</div>
+</section>
+
+<section>
+<div class="container">
+<h2>✨ Our Services</h2><br>
+<div class="cards">
+<div class="card"><h3>Sanskar</h3><p>Naming, Mundan, Marriage, Antim Sanskar</p></div>
+<div class="card"><h3>Puja</h3><p>Home, Office, Vehicle Puja</p></div>
+<div class="card"><h3>Havan</h3><p>Shanti, Health, Prosperity</p></div>
+<div class="card"><h3>Astrology</h3><p>Kundli & Muhurat</p></div>
+</div>
+</div>
+</section>
+
+<section id="book">
+<div class="container">
+<h2>📅 Book Puja</h2><br>
+<form onsubmit="sendWhatsApp();return false;">
+<input id="name" placeholder="Name" required>
+<input id="mobile" placeholder="Mobile Number" required>
+<select id="service">
+<option>Select Service</option>
+<option>Griha Pravesh</option>
+<option>Marriage</option>
+<option>Havan</option>
+<option>Astrology</option>
+</select>
+<input type="date" id="date" required>
+<input type="time" id="time" required>
+<textarea id="msg" placeholder="Message"></textarea>
+<button>Book via WhatsApp</button>
+</form>
+</div>
+</section>
+
+<section id="contact">
+<div class="container">
+<h2>📞 Contact</h2>
+<p>📍 New Delhi</p>
+<p>📱 9911339458</p>
+</div>
+</section>
+
+<a class="whatsapp" href="https://wa.me/919911339458">WhatsApp</a>
+<a class="call" href="tel:+919911339458">Call</a>
+
+<footer>
+<p>© 2025 Pandit Girish Ji | All Rights Reserved</p>
+</footer>
+
+<script>
+function sendWhatsApp(){
+let text=
+"Booking Request%0A"+
+"Name: "+name.value+"%0A"+
+"Mobile: "+mobile.value+"%0A"+
+"Service: "+service.value+"%0A"+
+"Date: "+date.value+"%0A"+
+"Time: "+time.value+"%0A"+
+"Message: "+msg.value;
+window.open("https://wa.me/919911339458?text="+text);
+}
+
+function setHindi(){
+document.getElementById("heroTitle").innerText="संपूर्ण वैदिक पूजा सेवाएँ";
+document.getElementById("heroText").innerText="शुद्ध मंत्र • विधिविधान • विश्वास";
+document.getElementById("aboutTitle").innerText="🙏 हमारे बारे में";
+document.getElementById("aboutText").innerText=
+"पंडित गिरिश जी पिछले 10 वर्षों से नई दिल्ली में सभी प्रकार की वैदिक पूजा एवं संस्कार कर रहे हैं।";
+}
+
+function setEnglish(){
+document.getElementById("heroTitle").innerText="Professional Vedic Puja Services";
+document.getElementById("heroText").innerText="Authentic Mantras • Proper Rituals";
+document.getElementById("aboutTitle").innerText="About Pandit Ji";
+document.getElementById("aboutText").innerText=
+"Pandit Girish Ji has 10+ years of experience providing Vedic Puja services in New Delhi.";
+}
+</script>
+
+</body>
+</html>
