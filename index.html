@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="hi">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,6 +14,7 @@ padding:0;
 box-sizing:border-box;
 font-family:'Noto Serif Devanagari',serif
 }
+
 body{
 background:#f5f5f5;
 color:#333;
@@ -27,7 +28,7 @@ color:#fff;
 padding:20px;
 text-align:center
 }
-header h1{font-size:28px}
+header h1{font-size:26px}
 header p{font-size:14px}
 
 /* NAV */
@@ -50,15 +51,15 @@ font-weight:bold
 
 /* HERO */
 .hero{
-background:url("https://i.imgur.com/ZkZ9QxU.jpg") center/cover;
+background:#8b0000;
 color:#fff;
-padding:70px 15px;
+padding:60px 15px;
 text-align:center
 }
-.hero h2{font-size:30px}
-.hero p{font-size:16px}
+.hero h2{font-size:26px}
+.hero p{font-size:15px}
 
-/* SECTIONS */
+/* SECTION */
 section{
 padding:30px 15px
 }
@@ -84,15 +85,17 @@ box-shadow:0 4px 10px rgba(0,0,0,.1)
 /* FORM */
 form{
 background:#fff;
-padding:20px;
+padding:22px;
 border-radius:12px;
 box-shadow:0 4px 10px rgba(0,0,0,.1)
 }
 form input,form select,form textarea{
 width:100%;
-padding:10px;
+padding:12px;
 margin:6px 0;
-font-size:14px
+font-size:14px;
+border:1px solid #ccc;
+border-radius:8px
 }
 form button{
 background:#7b0000;
@@ -101,32 +104,33 @@ border:none;
 padding:14px;
 width:100%;
 font-size:16px;
-cursor:pointer
-}
-.input-icon{
-display:flex;
-align-items:center;
-border:1px solid #ccc;
-border-radius:8px;
-padding:8px;
-margin:8px 0;
-background:#fff;
+cursor:pointer;
+border-radius:8px
 }
 
-.input-icon span{
-font-size:18px;
-margin-right:8px;
+/* DATE TIME PLACEHOLDER FIX */
+.field{
+position:relative;
+margin:8px 0
 }
-
-.input-icon input{
-border:none;
-outline:none;
-width:100%;
+.field label{
+position:absolute;
+left:12px;
+top:50%;
+transform:translateY(-50%);
 font-size:14px;
-background:transparent;
+color:#666;
+background:#fff;
+padding:0 4px;
+pointer-events:none
+}
+.field input{
+width:100%;
+padding:14px 12px;
+font-size:14px
 }
 
-/* CONTACT FLOAT BUTTONS */
+/* FLOAT BUTTONS */
 .whatsapp,.call{
 position:fixed;
 right:15px;
@@ -155,13 +159,11 @@ padding:12px;
 font-size:13px
 }
 
-/* MOBILE OPTIMIZATION */
-@media (max-width:768px){
-header h1{font-size:24px}
-.hero h2{font-size:24px}
-.hero p{font-size:14px}
+/* MOBILE */
+@media(max-width:768px){
+header h1{font-size:22px}
+.hero h2{font-size:22px}
 nav ul{flex-direction:column}
-nav ul li a{text-align:center}
 }
 </style>
 </head>
@@ -169,8 +171,8 @@ nav ul li a{text-align:center}
 <body>
 
 <header>
-<h1>🕉️ पंडित गिरिश जी</h1>
-<p>10 वर्षों का अनुभव | New Delhi</p>
+<h1>🕉️ Pandit Girish Ji</h1>
+<p>10 Years Experience | New Delhi</p>
 </header>
 
 <nav>
@@ -201,9 +203,11 @@ nav ul li a{text-align:center}
 <section id="book">
 <div class="container">
 <h2>📅 Book Puja</h2><br>
+
 <form onsubmit="sendWhatsApp();return false;">
-<input id="name" placeholder="Name" required>
+<input id="name" placeholder="Your Name" required>
 <input id="mobile" placeholder="Mobile Number" required>
+
 <select id="service">
 <option>Select Service</option>
 <option>Griha Pravesh</option>
@@ -211,16 +215,19 @@ nav ul li a{text-align:center}
 <option>Havan</option>
 <option>Astrology</option>
 </select>
-<div class="input-icon">
-  <span>📅</span>
-  <input type="date" id="date" placeholder="Select Date" required>
+
+<div class="field">
+<label id="dateLabel">📅 Select Date</label>
+<input type="date" id="date" required>
 </div>
 
-<div class="input-icon">
-  <span>⏰</span>
-  <input type="time" id="time" placeholder="Select Time" required>
+<div class="field">
+<label id="timeLabel">⏰ Select Time</label>
+<input type="time" id="time" required>
 </div>
+
 <textarea id="msg" placeholder="Message"></textarea>
+
 <button>Book via WhatsApp</button>
 </form>
 </div>
@@ -242,6 +249,16 @@ nav ul li a{text-align:center}
 </footer>
 
 <script>
+const dateInput=document.getElementById("date");
+const timeInput=document.getElementById("time");
+
+dateInput.addEventListener("change",()=>{
+document.getElementById("dateLabel").style.display="none";
+});
+timeInput.addEventListener("change",()=>{
+document.getElementById("timeLabel").style.display="none";
+});
+
 function sendWhatsApp(){
 let text=
 "Booking Request%0A"+
