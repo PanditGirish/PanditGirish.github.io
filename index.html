@@ -103,6 +103,28 @@ width:100%;
 font-size:16px;
 cursor:pointer
 }
+.input-icon{
+display:flex;
+align-items:center;
+border:1px solid #ccc;
+border-radius:8px;
+padding:8px;
+margin:8px 0;
+background:#fff;
+}
+
+.input-icon span{
+font-size:18px;
+margin-right:8px;
+}
+
+.input-icon input{
+border:none;
+outline:none;
+width:100%;
+font-size:14px;
+background:transparent;
+}
 
 /* CONTACT FLOAT BUTTONS */
 .whatsapp,.call{
@@ -189,8 +211,15 @@ nav ul li a{text-align:center}
 <option>Havan</option>
 <option>Astrology</option>
 </select>
-<input type="date" id="date" required>
-<input type="time" id="time" required>
+<div class="input-icon">
+  <span>📅</span>
+  <input type="date" id="date" required>
+</div>
+
+<div class="input-icon">
+  <span>⏰</span>
+  <input type="time" id="time" required>
+</div>
 <textarea id="msg" placeholder="Message"></textarea>
 <button>Book via WhatsApp</button>
 </form>
