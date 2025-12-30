@@ -165,16 +165,122 @@ header h1{font-size:22px}
 .hero h2{font-size:22px}
 nav ul{flex-direction:column}
 }
+
+/* TEMPLE SLIDER */
+.temple-slider{
+position:relative;
+width:100%;
+height:260px;
+overflow:hidden;
+border-radius:16px;
+box-shadow:0 8px 20px rgba(0,0,0,.3);
+margin:20px auto;
+background:#000;
+}
+
+/* SLIDES */
+.temple-slide{
+position:absolute;
+top:0;
+left:0;
+width:100%;
+height:100%;
+opacity:0;
+transition:opacity 1.5s ease-in-out;
+}
+
+.temple-slide.active{
+opacity:1;
+}
+
+.temple-slide img{
+width:100%;
+height:100%;
+object-fit:cover;
+filter:brightness(0.8);
+}
+
+/* OVERLAY TEXT */
+.temple-overlay{
+position:absolute;
+bottom:20px;
+width:100%;
+text-align:center;
+color:#ffd700;
+font-size:20px;
+font-weight:bold;
+text-shadow:0 0 10px rgba(255,215,0,.8);
+animation:glow 2s infinite alternate;
+}
+
+/* DIYA */
+.diya{
+position:absolute;
+bottom:10px;
+font-size:32px;
+animation:flicker 1.5s infinite alternate;
+}
+
+.diya-left{left:20px;}
+.diya-right{right:20px;}
+
+/* GLOW */
+@keyframes glow{
+from{text-shadow:0 0 5px #ffd700;}
+to{text-shadow:0 0 15px #ffae00;}
+}
+
+/* DIYA FLICKER */
+@keyframes flicker{
+0%{opacity:0.6;transform:scale(1);}
+100%{opacity:1;transform:scale(1.1);}
+}
+
+/* MOBILE */
+@media(min-width:768px){
+.temple-slider{
+height:420px;
+}
+.temple-overlay{
+font-size:28px;
+}
+}
+
 </style>
 </head>
 
 <body>
-
 <header>
-<h1>🕉️ Pandit Girish Ji</h1>
+
+
+
+<!-- TEMPLE SLIDESHOW -->
+<div class="temple-slider">
+
+  <div class="temple-slide">
+    <img src="C:\Data\Image.png" alt="Temple">
+    <div class="temple-overlay">🕉️ Divine Temple Blessings</div>
+  </div>
+
+  <div class="temple-slide">
+    <img src="C:\Data\Image2.png" alt="Havan">
+    <div class="temple-overlay">🔥 Sacred Havan Rituals</div>
+  </div>
+
+  <div class="temple-slide">
+    <img src="C:\Data\Image.png" alt="Puja">
+    <div class="temple-overlay">🙏 Traditional Vedic Puja</div>
+  </div>
+
+  <!-- Diyas -->
+  <div class="diya diya-left">🪔</div>
+  <div class="diya diya-right">🪔</div>
+
+</div>
+<img src="C:\Images\PGT.png" alt="Girish">
+<h1>🕉️ Pandit Girish  Tiwari Ji</h1>
 <p>10 Years Experience | New Delhi</p>
 </header>
-
 <nav>
 <ul>
 <li><a href="#services">Services</a></li>
@@ -270,6 +376,29 @@ let text=
 "Message: "+msg.value;
 window.open("https://wa.me/919911339458?text="+text);
 }
+document.addEventListener("DOMContentLoaded", function () {
+
+let templeIndex = 0;
+const templeSlides = document.querySelectorAll(".temple-slide");
+
+function showTempleSlides() {
+  templeSlides.forEach(slide => slide.classList.remove("active"));
+  templeSlides[templeIndex].classList.add("active");
+
+  templeIndex++;
+  if (templeIndex >= templeSlides.length) {
+    templeIndex = 0;
+  }
+}
+
+// First slide show
+showTempleSlides();
+
+// Change slide every 4 seconds
+setInterval(showTempleSlides, 4000);
+
+});
+
 </script>
 
 </body>
