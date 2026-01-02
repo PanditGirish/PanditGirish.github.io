@@ -366,9 +366,10 @@ document.getElementById("timeLabel").style.display="none";
 });
 
 function sendWhatsApp(){
+const names = document.getElementById("name").value;
 let text=
 "Booking Request%0A"+
-"Name: "+name.value+"%0A"+
+"Name: "+names.value+"%0A"+
 "Mobile: "+mobile.value+"%0A"+
 "Service: "+service.value+"%0A"+
 "Date: "+date.value+"%0A"+
@@ -404,6 +405,7 @@ setInterval(showTempleSlides, 4000);
 
 </body>
 </html>
+
 
 
 
