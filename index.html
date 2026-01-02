@@ -4,7 +4,480 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Pandit Girish Ji | Vedic Puja Services</title>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pandit Girish Ji | Vedic Puja Services</title>
+  
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Devanagari&display=swap" rel="stylesheet">
+  
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Noto Serif Devanagari', serif;
+    }
 
+    body {
+      background: #f5f5f5;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    /* HEADER */
+    header {
+      background: linear-gradient(90deg, #7b0000, #b22222);
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+    }
+    
+    header h1 {
+      font-size: 26px;
+    }
+    
+    header p {
+      font-size: 14px;
+    }
+
+    /* NAV */
+    nav {
+      background: #d4af37;
+    }
+    
+    nav ul {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    
+    nav ul li a {
+      display: block;
+      padding: 12px 16px;
+      text-decoration: none;
+      color: #000;
+      font-weight: bold;
+    }
+
+    /* HERO */
+    .hero {
+      background: #8b0000;
+      color: #fff;
+      padding: 60px 15px;
+      text-align: center;
+    }
+    
+    .hero h2 {
+      font-size: 26px;
+    }
+    
+    .hero p {
+      font-size: 15px;
+    }
+
+    /* SECTION */
+    section {
+      padding: 30px 15px;
+    }
+    
+    .container {
+      max-width: 1100px;
+      margin: auto;
+    }
+
+    /* CARDS */
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 16px;
+    }
+    
+    .card {
+      background: #fff;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+    
+    .card h3 {
+      color: #7b0000;
+    }
+
+    /* FORM */
+    form {
+      background: #fff;
+      padding: 22px;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+    
+    form input,
+    form select,
+    form textarea {
+      width: 100%;
+      padding: 12px;
+      margin: 6px 0;
+      font-size: 14px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+    }
+    
+    form button {
+      background: #7b0000;
+      color: #fff;
+      border: none;
+      padding: 14px;
+      width: 100%;
+      font-size: 16px;
+      cursor: pointer;
+      border-radius: 8px;
+    }
+
+    /* DATE TIME PLACEHOLDER FIX */
+    .field {
+      position: relative;
+      margin: 8px 0;
+    }
+    
+    .field label {
+      position: absolute;
+      left: 12px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 14px;
+      color: #666;
+      background: #fff;
+      padding: 0 4px;
+      pointer-events: none;
+    }
+    
+    .field input {
+      width: 100%;
+      padding: 14px 12px;
+      font-size: 14px;
+    }
+
+    /* FLOAT BUTTONS */
+    .whatsapp,
+    .call {
+      position: fixed;
+      right: 15px;
+      color: #fff;
+      padding: 12px 16px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: bold;
+      z-index: 999;
+    }
+    
+    .whatsapp {
+      bottom: 20px;
+      background: #25d366;
+    }
+    
+    .call {
+      bottom: 70px;
+      background: #0b5ed7;
+    }
+
+    /* FOOTER */
+    footer {
+      background: #7b0000;
+      color: #fff;
+      text-align: center;
+      padding: 12px;
+      font-size: 13px;
+    }
+
+    /* TEMPLE SLIDER */
+    .temple-slider {
+      position: relative;
+      width: 100%;
+      height: 260px;
+      overflow: hidden;
+      border-radius: 16px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+      margin: 20px auto;
+      background: #000;
+    }
+
+    /* SLIDES */
+    .temple-slide {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      transition: opacity 1.5s ease-in-out;
+    }
+
+    .temple-slide.active {
+      opacity: 1;
+    }
+
+    .temple-slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: brightness(0.8);
+    }
+
+    /* OVERLAY TEXT */
+    .temple-overlay {
+      position: absolute;
+      bottom: 20px;
+      width: 100%;
+      text-align: center;
+      color: #ffd700;
+      font-size: 20px;
+      font-weight: bold;
+      text-shadow: 0 0 10px rgba(255, 215, 0, 0.8);
+      animation: glow 2s infinite alternate;
+    }
+
+    /* DIYA */
+    .diya {
+      position: absolute;
+      bottom: 10px;
+      font-size: 32px;
+      animation: flicker 1.5s infinite alternate;
+    }
+
+    .diya-left {
+      left: 20px;
+    }
+    
+    .diya-right {
+      right: 20px;
+    }
+
+    /* GLOW */
+    @keyframes glow {
+      from {
+        text-shadow: 0 0 5px #ffd700;
+      }
+      to {
+        text-shadow: 0 0 15px #ffae00;
+      }
+    }
+
+    /* DIYA FLICKER */
+    @keyframes flicker {
+      0% {
+        opacity: 0.6;
+        transform: scale(1);
+      }
+      100% {
+        opacity: 1;
+        transform: scale(1.1);
+      }
+    }
+
+    /* MOBILE */
+    @media(max-width: 768px) {
+      header h1 {
+        font-size: 22px;
+      }
+      
+      .hero h2 {
+        font-size: 22px;
+      }
+      
+      nav ul {
+        flex-direction: column;
+      }
+    }
+
+    @media(min-width: 768px) {
+      .temple-slider {
+        height: 420px;
+      }
+      
+      .temple-overlay {
+        font-size: 28px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <!-- TEMPLE SLIDESHOW -->
+    <div class="temple-slider">
+      <div class="temple-slide">
+        <img src="Images/Image.png" alt="Temple">
+        <div class="temple-overlay">🕉️ Divine Temple Blessings</div>
+      </div>
+
+      <div class="temple-slide">
+        <img src="Images/Image2.png" alt="Havan">
+        <div class="temple-overlay">🔥 Sacred Havan Rituals</div>
+      </div>
+
+      <div class="temple-slide">
+        <img src="Images/Image.png" alt="Puja">
+        <div class="temple-overlay">🙏 Traditional Vedic Puja</div>
+      </div>
+
+      <!-- Diyas -->
+      <div class="diya diya-left">🪔</div>
+      <div class="diya diya-right">🪔</div>
+    </div>
+    
+    <img src="./Images/PGT.png" alt="Girish">
+    <h1>🕉️ Pandit Girish Tiwari Ji</h1>
+    <p>10 Years Experience | New Delhi</p>
+  </header>
+  
+  <nav>
+    <ul>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#book">Book Puja</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <div class="hero">
+    <h2>Professional Vedic Puja Services</h2>
+    <p>Authentic Mantras • Proper Rituals</p>
+  </div>
+
+  <section id="services">
+    <div class="container">
+      <h2>✨ Our Services</h2><br>
+      <div class="cards">
+        <div class="card">
+          <h3>Sanskar</h3>
+          <p>Marriage, Mundan, Antim Sanskar</p>
+          <img src="Images/Marriage.png" alt="Marriage">
+        </div>
+        <div class="card">
+          <h3>Puja</h3>
+          <p>Home, Office, Vehicle</p>
+          <img src="Images/Home.png" alt="Home">
+        </div>
+        <div class="card">
+          <h3>Havan</h3>
+          <p>Peace & Prosperity</p>
+          <img src="Images/car.png" alt="Car">
+        </div>
+        <div class="card">
+          <h3>Astrology</h3>
+          <p>Kundli & Muhurat</p>
+          <img src="Images/Astro.png" alt="Astrology">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="book">
+    <div class="container">
+      <h2>📅 Book Puja</h2><br>
+
+      <form onsubmit="sendWhatsApp(); return false;">
+        <input id="name" placeholder="Your Name" required>
+        <input id="mobile" placeholder="Mobile Number" required>
+
+        <select id="service">
+          <option>Select Service</option>
+          <option>Griha Pravesh</option>
+          <option>Marriage</option>
+          <option>Havan</option>
+          <option>Astrology</option>
+        </select>
+
+        <div class="field">
+          <label id="dateLabel">📅 Select Date</label>
+          <input type="date" id="date" required>
+        </div>
+
+        <div class="field">
+          <label id="timeLabel">⏰ Select Time</label>
+          <input type="time" id="time" required>
+        </div>
+
+        <textarea id="msg" placeholder="Message"></textarea>
+
+        <button>Book via WhatsApp</button>
+      </form>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="container">
+      <h2>📞 Contact</h2>
+      <p>📍 New Delhi</p>
+      <p>📱 9711791065, 7557394161</p>
+    </div>
+  </section>
+
+  <a class="whatsapp" href="https://wa.me/9711791065">WhatsApp</a>
+  <a class="call" href="tel:+9711791065">Call</a>
+
+  <footer>
+    <p>© 2025 Pandit Girish Tiwari Ji</p>
+  </footer>
+
+  <script>
+    const dateInput = document.getElementById("date");
+    const timeInput = document.getElementById("time");
+
+    dateInput.addEventListener("change", () => {
+      document.getElementById("dateLabel").style.display = "none";
+    });
+    
+    timeInput.addEventListener("change", () => {
+      document.getElementById("timeLabel").style.display = "none";
+    });
+
+    function sendWhatsApp() {
+      const name = document.getElementById("name").value;
+      const mobile = document.getElementById("mobile").value;
+      const service = document.getElementById("service").value;
+      const date = document.getElementById("date").value;
+      const time = document.getElementById("time").value;
+      const msg = document.getElementById("msg").value;
+      
+      let text = 
+        "Booking Request%0A" +
+        "Name: " + name + "%0A" +
+        "Mobile: " + mobile + "%0A" +
+        "Service: " + service + "%0A" +
+        "Date: " + date + "%0A" +
+        "Time: " + time + "%0A" +
+        "Message: " + msg;
+        
+      window.open("https://wa.me/9711791065?text=" + text);
+    }
+
+    document.addEventListener("DOMContentLoaded", function () {
+      let templeIndex = 0;
+      const templeSlides = document.querySelectorAll(".temple-slide");
+
+      function showTempleSlides() {
+        templeSlides.forEach(slide => slide.classList.remove("active"));
+        templeSlides[templeIndex].classList.add("active");
+
+        templeIndex++;
+        if (templeIndex >= templeSlides.length) {
+          templeIndex = 0;
+        }
+      }
+
+      // First slide show
+      showTempleSlides();
+
+      // Change slide every 4 seconds
+      setInterval(showTempleSlides, 4000);
+    });
+  </script>
+</body>
+</html>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Devanagari&display=swap" rel="stylesheet">
 
 <style>
@@ -405,6 +878,7 @@ setInterval(showTempleSlides, 4000);
 
 </body>
 </html>
+
 
 
 
